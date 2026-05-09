@@ -1,4 +1,4 @@
-package com.swagat.uilabbackend.Controller;
+package com.swagat.uilabbackend.controller;
 
 
 import org.springframework.http.ResponseEntity;
