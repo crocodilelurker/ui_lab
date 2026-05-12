@@ -1,17 +1,31 @@
 package com.swagat.uilabbackend.controller;
 
 
+import com.swagat.uilabbackend.model.Component;
+import com.swagat.uilabbackend.service.ComponentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/components")
 public class ComponentController {
+
+    @Autowired
+    private ComponentService componentService;
+
     @GetMapping
-    public ResponseEntity<String> getAllComponents()
+    public ResponseEntity<List<Component>> getAllComponents()
     {
-        return ResponseEntity.ok("Hello World by api/components");
+        List<Component> componentsList = componentService.getAllComponents();
+        return ResponseEntity.status(200).body(componentsList);
+    }
+
+    @PostMapping
+    public ResponseEntity<Component> submitNewComponent(@RequestBody Component component) {
+        Component componentSubmitted =  componentService.submitNewComponent(component);
+        return ResponseEntity.status(201).body(componentSubmitted);
     }
 }
