@@ -4,6 +4,8 @@ import Home from "../pages/Home";
 import NotFound from "../pages/NotFound"
 import { Link, Outlet, Route, Routes } from 'react-router-dom'
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from '@/components/ui/navigation-menu';
+import  Login from "../pages/Login";
+import SignUp from '../pages/SignUp';
 // we can serve one main layout 
 function MainLayout() {
   return (
@@ -15,11 +17,11 @@ function MainLayout() {
           <Link to="/" className="hover:text-gray-700 cursor-pointer transition-all duration-300">Ui Lab India</Link>
         </div>
         {/* right-side */}
-        <div className="text-xl ">
+        <div className="text-xl">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
+                <NavigationMenuTrigger>Services</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <NavigationMenuLink>Link</NavigationMenuLink>
                 </NavigationMenuContent>
@@ -28,6 +30,16 @@ function MainLayout() {
               <NavigationMenuItem>
                 <NavigationMenuLink>
                   <Link to="/about">About</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink>
+                  <Link to="/login">Login</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink>
+                  <Link to="/signup">Sign Up</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -46,7 +58,10 @@ function App() {
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
+        <Route path = "/login" element = {<Login/>} />
+        <Route path = "/signup" element = {<SignUp/>} />
         <Route path="*" element={<NotFound />} />
+
       </Route>
     </Routes>
   )
