@@ -2,7 +2,6 @@ package com.swagat.uilabbackend.controller;
 
 
 import com.swagat.uilabbackend.dto.UserResponseDTO;
-import com.swagat.uilabbackend.model.User;
 import com.swagat.uilabbackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

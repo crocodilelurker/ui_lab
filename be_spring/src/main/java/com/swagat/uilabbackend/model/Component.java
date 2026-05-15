@@ -10,16 +10,9 @@ public class Component {
     private String title;
     @Column(columnDefinition =  "TEXT")
     private String reactCode;
-<<<<<<< HEAD
     @ManyToOne
     @JoinColumn(nullable = true)
     private User developer;
-=======
-
-    @Column(nullable = false)
-    private String developer;
-
->>>>>>> 3cce4901ce6552d9e1261141dbcbf2c872b7ee2c
     private String status;
     // Setters and getters
     public Long getId(){return this.id;}
@@ -36,8 +29,5 @@ public class Component {
 
     public String getStatus(){return this.status;}
     public void setStatus(String status){this.status=status;}
-
-    public String getDeveloper(){return this.developer;}
-    public void setDeveloper(String developerId){this.developer=developer;}
 
 }
