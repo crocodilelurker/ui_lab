@@ -23,7 +23,7 @@ public class UserService {
         if(result.isPresent())
         {
             User user = result.get();
-            return new UserResponseDTO(user.getId(),user.getEmail(),user.getUsername());
+            return new UserResponseDTO(user.getId(),user.getEmail(),user.getUsername(),user.getRole());
         }
         return null;
     }
@@ -34,7 +34,7 @@ public class UserService {
         List<UserResponseDTO> users = new ArrayList<>();
         for(User user : result)
         {
-            users.add(new UserResponseDTO(user.getId(),user.getEmail(),user.getUsername()));
+            users.add(new UserResponseDTO(user.getId(),user.getEmail(),user.getUsername(),user.getRole()));
         }
         return users;
     }
