@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ComponentService {
@@ -20,6 +21,10 @@ public class ComponentService {
     }
     public List<Component> getAllComponents() {
         return componentRepository.findAll();
+    }
+    public Component getComponentById(Long id) {
+        Optional<Component> result =  componentRepository.findById(id);
+        return result.orElse(null);
     }
 
 }

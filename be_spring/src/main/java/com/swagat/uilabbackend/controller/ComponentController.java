@@ -21,6 +21,15 @@ public class ComponentController {
         List<Component> componentsList = componentService.getAllComponents();
         return ResponseEntity.status(200).body(componentsList);
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<Component> getComponentById(@PathVariable Long id)
+    {
+        Component  component = componentService.getComponentById(id);
+        if(component != null)
+            return ResponseEntity.ok(component);
+        else
+            return ResponseEntity.notFound().build();
+    }
 
     @PostMapping
     public ResponseEntity<Component> submitNewComponent(@RequestBody Component component) {
