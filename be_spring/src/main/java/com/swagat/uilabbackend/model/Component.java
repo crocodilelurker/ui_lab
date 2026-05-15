@@ -10,6 +10,10 @@ public class Component {
     private String title;
     @Column(columnDefinition =  "TEXT")
     private String reactCode;
+
+    @Column(nullable = false)
+    private String developer;
+
     private String status;
     // Setters and getters
     public Long getId(){return this.id;}
@@ -23,5 +27,8 @@ public class Component {
 
     public String getStatus(){return this.status;}
     public void setStatus(String status){this.status=status;}
+
+    public String getDeveloper(){return this.developer;}
+    public void setDeveloper(String developerId){this.developer=developer;}
 
 }
