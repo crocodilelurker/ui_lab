@@ -1,6 +1,5 @@
 package com.swagat.uilabbackend.controller;
 
-
 import com.swagat.uilabbackend.model.Component;
 import com.swagat.uilabbackend.service.ComponentService;
 import org.springframework.beans.factory.annotation.Autowired;
