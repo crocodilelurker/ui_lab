@@ -26,5 +26,14 @@ public class ComponentService {
         Optional<Component> result =  componentRepository.findById(id);
         return result.orElse(null);
     }
+    public boolean deleteComponentById(Long id) {
+        try{
+            componentRepository.deleteById(id);
+            return  true;
+        }
+        catch(Exception e){
+            return false;
+        }
+    }
 
 }
