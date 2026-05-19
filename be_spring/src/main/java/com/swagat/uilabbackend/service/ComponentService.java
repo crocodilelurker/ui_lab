@@ -19,6 +19,15 @@ public class ComponentService {
         component.setStatus("PENDING");
         return componentRepository.save(component);
     }
+    public Component approveComponent(Long id) {
+        Optional<Component> componentOpt = componentRepository.findById(id);
+        if (componentOpt.isPresent()) {
+            Component component = componentOpt.get();
+            component.setStatus("APPROVED");
+            return componentRepository.save(component);
+        }
+        return null;
+    }
     public List<Component> getAllComponents() {
         return componentRepository.findAll();
     }

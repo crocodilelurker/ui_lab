@@ -16,7 +16,6 @@ public class ComponentController {
     @Autowired
     private ComponentService componentService;
 
-    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @GetMapping
     public ResponseEntity<List<Component>> getAllComponents()
     {
@@ -37,6 +36,16 @@ public class ComponentController {
     public ResponseEntity<Component> submitNewComponent(@RequestBody Component component) {
         Component componentSubmitted =  componentService.submitNewComponent(component);
         return ResponseEntity.status(201).body(componentSubmitted);
+    }
+    @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("/{id}/approve")
+    public ResponseEntity<Component> approveComponent(@PathVariable Long id)
+    {
+        Component approved = componentService.approveComponent(id);
+        if(approved != null)
+            return ResponseEntity.ok(approved);
+        else
+            return ResponseEntity.notFound().build();
     }
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
